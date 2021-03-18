@@ -3,12 +3,7 @@ import {
   BadRequestException,
   NotFoundException,
 } from '@nestjs/common';
-import {
-  ChangePasswordDto,
-  ForgetPasswordDto,
-  ResetPasswordDto,
-  ResetPinDto,
-} from './dto';
+import { ChangePasswordDto, ForgetPasswordDto, ResetPasswordDto } from './dto';
 import { UserEntity } from './../../user/entities';
 import { getRepository } from 'typeorm';
 import {
@@ -18,7 +13,6 @@ import {
 } from './interface';
 import { UserService } from './../../user/user.service';
 import { compareHash, generateHash } from './../../utility';
-import { RESET_PASSWORD_SLUG } from '../../environment';
 import { UtilityService } from '../../utility';
 import { ERROR_CODES } from 'src/error-code';
 

@@ -14,9 +14,12 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { TypeOrmService, GraphqlService } from './config';
 import { AppResolver } from './app.resolver';
+import { ScheduleModule } from '@nestjs/schedule';
+import { S3Module } from './utility/s3/s3.module';
 
 @Module({
   imports: [
+    ScheduleModule.forRoot(),
     TypeOrmModule.forRootAsync({
       useClass: TypeOrmService,
     }),
@@ -26,6 +29,7 @@ import { AppResolver } from './app.resolver';
     TerminusModule,
     AuthModule,
     UserModule,
+    S3Module,
   ],
   controllers: [HealthController],
   providers: [

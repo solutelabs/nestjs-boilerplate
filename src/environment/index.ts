@@ -18,3 +18,10 @@ export const RESET_PASSWORD_SLUG = process.env.RESET_PASSWORD_SLUG;
 export const INVITE_SLUG = process.env.INVITE_SLUG;
 
 export const ENVIRONMENT = process.env.ENVIRONMENT;
+
+export const AWS_ACCESS_KEY = process.env.AWS_ACCESS_KEY;
+export const AWS_SECRET_KEY = process.env.AWS_SECRET_KEY;
+export const AWS_S3_BUCKET = process.env.AWS_S3_BUCKET;
+export const AWS_S3_REGION = process.env.AWS_S3_REGION;
+
+export const REDIS_QUEUE_URL = process.env.REDIS_QUEUE_URL;
