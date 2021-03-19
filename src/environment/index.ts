@@ -25,3 +25,5 @@ export const AWS_S3_BUCKET = process.env.AWS_S3_BUCKET;
 export const AWS_S3_REGION = process.env.AWS_S3_REGION;
 
 export const REDIS_QUEUE_URL = process.env.REDIS_QUEUE_URL;
+
+export const SENTRY_DSN = process.env.SENTRY_DSN;

@@ -31,6 +31,8 @@
     "@nestjs/schedule": "^0.4.3",
     "@nestjs/terminus": "^7.1.0",
     "@nestjs/typeorm": "^7.1.5",
+    "@sentry/minimal": "^6.2.2",
+    "@sentry/node": "^6.2.2",
     "apollo-server-express": "^2.21.1",
     "aws-sdk": "^2.866.0",
     "bcryptjs": "^2.4.3",
@@ -45,7 +47,8 @@
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^6.5.4",
-    "typeorm": "^0.2.31"
+    "typeorm": "^0.2.31",
+    "winston": "^3.3.3"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
