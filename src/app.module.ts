@@ -18,6 +18,7 @@ import { ScheduleModule } from '@nestjs/schedule';
 import { S3Module } from './utility/s3/s3.module';
 import { OtpModule } from './otp/otp.module';
 import { CountryModule } from './country/country.module';
+import { CronService } from './utility';
 
 @Module({
   imports: [
@@ -49,6 +50,7 @@ import { CountryModule } from './country/country.module';
       }),
     },
     AppResolver,
+    CronService,
   ],
 })
 export class AppModule {}
