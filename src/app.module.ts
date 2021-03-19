@@ -19,6 +19,7 @@ import { S3Module } from './utility/s3/s3.module';
 import { OtpModule } from './otp/otp.module';
 import { CountryModule } from './country/country.module';
 import { CronService } from './utility';
+import { ThrottlerModule } from '@nestjs/throttler';
 
 @Module({
   imports: [
@@ -35,6 +36,10 @@ import { CronService } from './utility';
     S3Module,
     OtpModule,
     CountryModule,
+    ThrottlerModule.forRoot({
+      ttl: 60,
+      limit: 5,
+    }),
   ],
   controllers: [HealthController],
   providers: [
