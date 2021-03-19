@@ -16,6 +16,8 @@ import { TypeOrmService, GraphqlService } from './config';
 import { AppResolver } from './app.resolver';
 import { ScheduleModule } from '@nestjs/schedule';
 import { S3Module } from './utility/s3/s3.module';
+import { OtpModule } from './otp/otp.module';
+import { CountryModule } from './country/country.module';
 
 @Module({
   imports: [
@@ -30,6 +32,8 @@ import { S3Module } from './utility/s3/s3.module';
     AuthModule,
     UserModule,
     S3Module,
+    OtpModule,
+    CountryModule,
   ],
   controllers: [HealthController],
   providers: [
