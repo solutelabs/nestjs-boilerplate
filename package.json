@@ -29,6 +29,7 @@
     "@nestjs/platform-express": "^7.0.0",
     "@nestjs/terminus": "^7.1.0",
     "@nestjs/typeorm": "^7.1.5",
+    "@sendgrid/mail": "^7.4.2",
     "apollo-server-express": "^2.21.1",
     "bcryptjs": "^2.4.3",
     "class-transformer": "^0.4.0",
@@ -38,9 +39,11 @@
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "pg": "^8.5.1",
+    "postmark": "^2.7.3",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^6.5.4",
+    "twilio": "^3.58.0",
     "typeorm": "^0.2.31"
   },
   "devDependencies": {
