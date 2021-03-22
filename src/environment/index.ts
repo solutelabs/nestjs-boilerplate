@@ -37,3 +37,16 @@ export const ONE_SIGNAL_WEB_URL = process.env.ONE_SIGNAL_WEB_URL;
 
 export const SENDGRID_SENDER_EMAIL = process.env.SENDGRID_SENDER_EMAIL;
 export const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY;
+export const AWS_ACCESS_KEY = process.env.AWS_ACCESS_KEY;
+export const AWS_SECRET_KEY = process.env.AWS_SECRET_KEY;
+export const AWS_S3_BUCKET = process.env.AWS_S3_BUCKET;
+export const AWS_S3_REGION = process.env.AWS_S3_REGION;
+
+export const REDIS_QUEUE_URL = process.env.REDIS_QUEUE_URL;
+
+export const SENTRY_DSN = process.env.SENTRY_DSN;
+
+export const PRODUCT_NAME = process.env.PRODUCT_NAME;
+
+export const OTP_EMAILS = process.env.OTP_EMAILS;
+export const SEND_OTP_ON_EMAIL = process.env.SEND_OTP_ON_EMAIL;
