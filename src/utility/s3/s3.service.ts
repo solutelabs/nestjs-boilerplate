@@ -1,11 +1,12 @@
 import { Injectable, Logger } from '@nestjs/common';
 import * as Aws from 'aws-sdk';
+import { DeleteObjectsRequest } from 'aws-sdk/clients/s3';
 import {
   AWS_ACCESS_KEY,
   AWS_SECRET_KEY,
   AWS_S3_REGION,
   AWS_S3_BUCKET,
-} from 'src/environment';
+} from '../../environment';
 
 @Injectable()
 export class S3Service {
@@ -44,5 +45,36 @@ export class S3Service {
     } catch (error) {
       Logger.log(error);
     }
+  }
+
+  async getMultiPresignedURL(fileNames: string[]) {
+    return fileNames.map(async fileName => {
+      return this.s3.getSignedUrl('getObject', {
+        Bucket: AWS_S3_BUCKET,
+        Key: fileName,
+        Expires: 60 * 60 * 4,
+      });
+    });
+  }
+
+  async deleteAssets(bucket: string, keys: string[]) {
+    const param: DeleteObjectsRequest = {
+      Bucket: bucket,
+      Delete: {
+        Objects: keys.map(key => {
+          return { Key: key };
+        }),
+      },
+    };
+
+    return this.s3
+      .deleteObjects(param, function(err, data) {
+        if (err) {
+          Logger.log(err, err.stack);
+        } else {
+          Logger.log(data);
+        }
+      })
+      .promise();
   }
 }
