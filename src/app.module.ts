@@ -16,7 +16,6 @@ import { TypeOrmService, GraphqlService } from './config';
 import { AppResolver } from './app.resolver';
 import { ScheduleModule } from '@nestjs/schedule';
 import { S3Module } from './utility/s3/s3.module';
-import { OtpModule } from './otp/otp.module';
 import { CountryModule } from './country/country.module';
 import { CronService } from './utility';
 import { ThrottlerModule } from '@nestjs/throttler';
@@ -34,7 +33,6 @@ import { ThrottlerModule } from '@nestjs/throttler';
     AuthModule,
     UserModule,
     S3Module,
-    OtpModule,
     CountryModule,
     ThrottlerModule.forRoot({
       ttl: 60,

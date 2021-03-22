@@ -5,6 +5,8 @@ import { JwtModule } from '@nestjs/jwt';
 import { JWT_SECRET, JWT_EXPIRES_IN_DAYS } from '../environment';
 import { UserModule } from '../user/user.module';
 import { JwtStrategy } from './strategy';
+import { OtpModule } from './otp/otp.module';
+import { PasswordModule } from './password/password.module';
 
 @Module({
   imports: [
@@ -15,6 +17,8 @@ import { JwtStrategy } from './strategy';
       },
       signOptions: { expiresIn: `${JWT_EXPIRES_IN_DAYS}d` },
     }),
+    PasswordModule,
+    OtpModule,
     UserModule,
   ],
   providers: [AuthResolver, AuthService, JwtStrategy],

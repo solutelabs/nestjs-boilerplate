@@ -1,6 +1,6 @@
 import { UseGuards } from '@nestjs/common';
 import { Resolver, Mutation, Args } from '@nestjs/graphql';
-import { GqlThrottlerGuard } from '../utility/guards';
+import { GqlThrottlerGuard } from '../../utility/guards';
 import { ValidateOtpDto, SendOtpDto } from './dto';
 import { UserOtpResponse } from './models';
 import { OtpService } from './otp.service';

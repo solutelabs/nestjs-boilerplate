@@ -6,14 +6,12 @@ import { ENVIRONMENT, PORT, SENTRY_DSN } from './environment';
 import { ValidationPipe } from '@nestjs/common';
 import { Logger, SentryInterceptor } from './utility';
 import * as Sentry from '@sentry/node';
-import * as csurf from 'csurf';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   app.useGlobalPipes(new ValidationPipe());
   app.enableCors();
-  app.use(csurf());
 
   Sentry.init({
     dsn: SENTRY_DSN,

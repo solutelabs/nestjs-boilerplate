@@ -8,11 +8,11 @@ import { totp } from 'otplib';
 import { Repository } from 'typeorm';
 import * as randomString from 'randomstring';
 import { OtpEntity } from './entities';
-import { OTP_EMAILS, SEND_OTP_ON_EMAIL } from '../environment';
+import { OTP_EMAILS, SEND_OTP_ON_EMAIL } from '../../environment';
 import { SendOtpDto } from './dto';
-import { ERROR_CODES } from '../error-code';
-import { UserEntity } from '../user/entities';
-import { CountryService } from '../country/country.service';
+import { ERROR_CODES } from '../../error-code';
+import { UserEntity } from '../../user/entities';
+import { CountryService } from '../../country/country.service';
 totp.options = { digits: 6, window: 1, step: 60 };
 
 @Injectable()
