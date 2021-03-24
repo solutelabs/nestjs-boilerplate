@@ -2,9 +2,9 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { ENVIRONMENT, PORT, SENTRY_DSN } from './environment';
+import { ENVIRONMENT, PORT, SENTRY_DSN } from '@environments';
 import { ValidationPipe } from '@nestjs/common';
-import { Logger, SentryInterceptor } from './utility';
+import { Logger, SentryInterceptor } from '@utility';
 import * as Sentry from '@sentry/node';
 
 async function bootstrap() {
@@ -24,7 +24,7 @@ async function bootstrap() {
 }
 
 // Start Application
-bootstrap().catch(e => {
+bootstrap().catch((e) => {
   Logger.error(`❌  Error starting server, ${e}`);
   throw e;
 });

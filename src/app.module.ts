@@ -6,26 +6,23 @@ import {
 } from '@nestjs/common';
 import { HealthController } from './health.controller';
 import { TerminusModule } from '@nestjs/terminus';
-import { AuthModule } from './auth/auth.module';
-import { UserModule } from './user/user.module';
+import { AuthModule } from './app/auth/auth.module';
 import { APP_FILTER, APP_PIPE } from '@nestjs/core';
-import { CustomExceptionsFilter } from './utility';
 import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { TypeOrmService, GraphqlService } from './config';
+import { GraphqlService, databaseConfigService } from '@config';
 import { AppResolver } from './app.resolver';
 import { ScheduleModule } from '@nestjs/schedule';
-import { S3Module } from './utility/s3/s3.module';
-import { CountryModule } from './country/country.module';
-import { CronService } from './utility';
+import { S3Module } from './app/s3/s3.module';
+import { CronService, CustomExceptionsFilter } from '@utility';
 import { ThrottlerModule } from '@nestjs/throttler';
+import { UserModule } from './app/user/user.module';
+import { CountryModule } from './app/country/country.module';
 
 @Module({
   imports: [
     ScheduleModule.forRoot(),
-    TypeOrmModule.forRootAsync({
-      useClass: TypeOrmService,
-    }),
+    TypeOrmModule.forRoot(databaseConfigService.getDefaultTypeOrmConfig()),
     GraphQLModule.forRootAsync({
       useClass: GraphqlService,
     }),

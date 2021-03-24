@@ -10,6 +10,27 @@
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./",
-    "incremental": true
-  }
+    "incremental": true,
+    "esModuleInterop": true,
+    "noLib": false,
+		"noImplicitAny": false,
+		"typeRoots": ["node_modules/@types", "types"],
+    "paths": {
+      
+      "@environments": ["src/core/environment"],
+      "@constants": ["src/core/constant"],
+      "@errors": ["src/core/error-code"],
+      "@utility": ["src/core/utility"],
+      "@config": ["src/core/config"],
+		}
+  },
+	"compileOnSave": false,
+	"exclude": [
+		"node_modules",
+		"coverage",
+		"document",
+		"dist",
+		"backup",
+		"**/*.spec.ts"
+	]
 }
