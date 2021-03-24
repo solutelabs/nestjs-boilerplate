@@ -36,7 +36,7 @@
     "@sentry/minimal": "^6.2.2",
     "@sentry/node": "^6.2.2",
     "apollo-server-express": "^2.21.1",
-    "aws-sdk": "^2.869.0",
+    "aws-sdk": "^2.870.0",
     "bcryptjs": "^2.4.3",
     "bull": "^3.20.1",
     "class-transformer": "^0.4.0",
