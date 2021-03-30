@@ -19,7 +19,7 @@
             "skip-ci"
         ],
         "disallowed": [
-            "master",
+            "main",
             "develop",
             "staging"
         ],
