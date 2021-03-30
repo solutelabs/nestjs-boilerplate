@@ -95,3 +95,70 @@ $ npm run start:prod
 ```
 
 ---
+
+## Basics
+
+---
+
+**This application comes with built in support for authorization.**
+**It comes with built-in api's like**
+
+- Login
+- Forget and Change password
+- Send and Verify otp
+
+**Extended support with gaurds for authentication**
+
+- Auth Gaurd
+- Role Gaurd
+- Webhook Gaurd
+- GqlThrottler Guard
+
+### Auth Gaurd
+
+**Use this when you want to make your api secure/ unauthenticated user can't access it**
+
+```
+@Query(() => String)
+@UseGuards(JwtAuthGuard)
+async test() {
+    return 'test'
+  }
+```
+
+### Role Gaurd
+
+**Use this when you want to make your api accessible to a certain set user with specific role**
+
+```
+@Query(() => String)
+@UseGuards(JwtAuthGuard, RolesGuard)
+@Role('role')
+async test() {
+    return 'test'
+  }
+```
+
+### Webhook Gaurd
+
+**Use this when you want to secure your webhook created using hasura**
+
+```
+@Query(() => String)
+@UseGuards(WebhookAuthGuard)
+async test() {
+    return 'test'
+  }
+```
+
+### GqlThrottler Guard
+
+**Use this when you want to limit your api to be hit not more than n no of times**
+
+```
+@Query(() => String)
+@UseGuards(GqlThrottlerGuard)
+async test() {
+    return 'test'
+  }
+```
