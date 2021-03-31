@@ -100,6 +100,10 @@ $ npm run start:prod
 
 ---
 
+### Authentication & Authorisation
+
+---
+
 **This application comes with built in support for authorization.**
 **It comes with built-in api's like**
 
@@ -112,7 +116,7 @@ $ npm run start:prod
 - Auth Gaurd
 - Role Gaurd
 - Webhook Gaurd
-- GqlThrottler Guard
+- Throttler Guard
 
 ### Auth Gaurd
 
@@ -151,7 +155,7 @@ async test() {
   }
 ```
 
-### GqlThrottler Guard
+### Throttler Guard
 
 **Use this when you want to limit your api to be hit not more than n no of times**
 
@@ -162,3 +166,72 @@ async test() {
     return 'test'
   }
 ```
+
+---
+
+### Communication
+
+---
+
+**This application comes with built in services for communication via.**
+
+- Mail (Postmark)
+- Message (Twillio)
+- Notification (One Signal)
+
+### Mail
+
+**To use, inject the mail service and call the desired method**
+
+```
+  // inject email service
+  constructor(
+    private readonly emailService: EmailService,
+  ) {}
+
+  // call method
+  await this.emailService.sendInvitation(payload)
+```
+
+### Message
+
+**To use, inject the message service and call the desired method**
+
+```
+  // inject message service
+  constructor(
+    private readonly smsService: SmsService,
+  ) {}
+
+  // call method
+  await this.smsService.sendSms(contactNumber: string, message: string)
+```
+
+### Notification
+
+**To use, inject the notification service and call the desired method**
+
+```
+  // inject email service
+  constructor(
+    private readonly onesignalService: OnesignalService,
+  ) {}
+
+  // call method
+  await this.onesignalService.createNotificatioBaseOnExternalId(payload)
+```
+
+## Aditional Notes
+
+- Before starting the application start hasura's docker container for connecting to DB.
+
+- To use GqlThrottlerGuard add it to imports array in app.module.ts like this:
+
+```
+ThrottlerModule.forRoot({
+      ttl: 60,
+      limit: 5,
+    })
+```
+
+- To use mail, message and notification service add it to providers array for respective modules in which this services are going to be used
