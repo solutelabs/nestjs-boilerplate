@@ -54,7 +54,7 @@
     "rimraf": "^3.0.2",
     "rxjs": "^6.6.7",
     "twilio": "^3.58.0",
-    "typeorm": "^0.2.31",
+    "typeorm": "^0.2.32",
     "winston": "^3.3.3"
   },
   "devDependencies": {
