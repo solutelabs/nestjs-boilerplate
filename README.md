@@ -98,7 +98,7 @@ $ npm run start:prod
 
 ### Project Structure
 
-![structure](https://raw.githubusercontent.com/sambhav-solutelabs/nestjs-boilerplate/NJB-6-refactor/assets/structure.png)
+![structure](https://raw.githubusercontent.com/sambhav-solutelabs/nestjs-boilerplate/feature/NJB-6-refactor/assets/structure.png?token=ARQQ67XLQYTUYJD47DDSTLDAMQVGE)
 
 - Application is divided in 2 parts
   - app - this contains APIs related code
