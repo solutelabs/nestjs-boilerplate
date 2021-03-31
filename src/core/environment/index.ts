@@ -1,12 +1,5 @@
 export const PORT: number = +process.env.PORT;
 
-export const DATABASE_TYPE: any = process.env.DATABASE_TYPE;
-export const DATABASE_HOST = process.env.DATABASE_HOST;
-export const DATABASE_PORT = process.env.DATABASE_PORT;
-export const DATABASE_USERNAME = process.env.DATABASE_USERNAME;
-export const DATABASE_PASSWORD = process.env.DATABASE_PASSWORD;
-export const DATABASE_DB = process.env.DATABASE_DB;
-
 export const JWT_SECRET = process.env.JWT_SECRET;
 export const JWT_EXPIRES_IN_DAYS = +process.env.JWT_EXPIRES_IN_DAYS;
 export const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET;

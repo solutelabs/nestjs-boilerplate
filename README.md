@@ -29,12 +29,6 @@ node setup.js
 PORT=
 
 #DATABASE ENVs
-POSTGRES_TYPE=
-POSTGRES_HOST=
-POSTGRES_PORT=
-POSTGRES_USER=
-POSTGRES_PASSWORD=
-POSTGRES_DATABASE=
 DATABASE_URL=
 
 #JWT
@@ -68,7 +62,7 @@ $ sudo docker build -t app-name .
 #### Run image
 
 ```bash
-$ sudo docker run app-name -p host_port:container_port
+$ sudo docker run  --network=host app-name
 ```
 
 ---
