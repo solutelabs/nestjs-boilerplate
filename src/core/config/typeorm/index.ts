@@ -11,11 +11,6 @@ class TypeOrmService {
     return value;
   }
 
-  public ensureValues(keys: string[]) {
-    keys.forEach((k) => this.getValue(k, true));
-    return this;
-  }
-
   public getDefaultTypeOrmConfig(): TypeOrmModuleOptions {
     return {
       type: 'postgres',
@@ -29,11 +24,5 @@ class TypeOrmService {
   }
 }
 
-const databaseConfigService = new TypeOrmService().ensureValues([
-  'POSTGRES_HOST',
-  'POSTGRES_PORT',
-  'POSTGRES_USER',
-  'POSTGRES_PASSWORD',
-  'POSTGRES_DATABASE',
-]);
+const databaseConfigService = new TypeOrmService();
 export { databaseConfigService };
