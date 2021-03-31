@@ -96,6 +96,20 @@ $ npm run start:prod
 
 ---
 
+### Project Structure
+
+![structure](https://raw.githubusercontent.com/sambhav-solutelabs/nestjs-boilerplate/NJB-6-refactor/assets/structure.png)
+
+- Application is divided in 2 parts
+  - app - this contains APIs related code
+  - core - this contains code related to scaffolding the app.(like logger, guards, validator, etc)
+  - even if we don’t add any module in app folder the application will bootstrap as it is loosely coupled.
+
+* Module are plug and play. for ex: add S3 module in app module if u want to have S3 related api’s in your app.
+* Module like Auth and user needs to instantiated together as both are dependent on each other.
+
+---
+
 ## Basics
 
 ---
