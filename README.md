@@ -92,7 +92,7 @@ $ npm run start:prod
 
 ### Project Structure
 
-![structure](https://raw.githubusercontent.com/sambhav-solutelabs/nestjs-boilerplate/feature/NJB-6-refactor/assets/structure.png?token=ARQQ67XLQYTUYJD47DDSTLDAMQVGE)
+![structure](https://raw.githubusercontent.com/solutelabs/nestjs-boilerplate/main/assets/structure.png)
 
 - Application is divided in 2 parts
   - app - this contains APIs related code
@@ -287,3 +287,22 @@ ThrottlerModule.forRoot({
 ```
 
 - To use mail, message and notification service add it to providers array for respective modules in which this services are going to be used
+
+
+## Repository
+
+- Repository is basically use to create contract between your application with database.
+that means for each table you can create repository. syntax will be following: 
+
+```
+@Entity('<YOUR_TABLE_NAME>')
+export class UserEntity extends BaseEntity  {
+  @Column('text')
+  email: string;
+}
+```
+- in this example @Entity decorator is use to connect your table with the repository and the 
+parameter defines the table name.
+
+- BaseEntity is the parent class so all the common column which are used in every table will be
+written over there so just we need to extend this example, already shown in the above example.
