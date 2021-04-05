@@ -10,7 +10,7 @@ import { AuthModule } from './app/auth/auth.module';
 import { APP_FILTER, APP_PIPE } from '@nestjs/core';
 import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { GraphqlService, databaseConfigService } from '@config';
+import { GraphqlService } from '@config';
 import { AppResolver } from './app.resolver';
 import { ScheduleModule } from '@nestjs/schedule';
 import { S3Module } from './app/s3/s3.module';
@@ -18,11 +18,12 @@ import { CronService, CustomExceptionsFilter } from '@utility';
 import { ThrottlerModule } from '@nestjs/throttler';
 import { UserModule } from './app/user/user.module';
 import { CountryModule } from './app/country/country.module';
+import * as ormconfig from './core/config/typeorm';
 
 @Module({
   imports: [
     ScheduleModule.forRoot(),
-    TypeOrmModule.forRoot(databaseConfigService.getDefaultTypeOrmConfig()),
+    TypeOrmModule.forRoot(ormconfig),
     GraphQLModule.forRootAsync({
       useClass: GraphqlService,
     }),

@@ -19,7 +19,10 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "release": "standard-version"
+    "release": "standard-version",
+    "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js --config src/core/config/typeorm/index.ts",
+    "typeorm:migrate": "npm run typeorm migration:generate -- -n",
+    "typeorm:run": "npm run typeorm migration:run"
   },
   "dependencies": {
     "@nestjs/bull": "^0.3.1",
