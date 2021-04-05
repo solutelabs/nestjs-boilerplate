@@ -1,5 +1,12 @@
 # NestJs Boilerplate(0.0.1)
 
+<a href="https://david-dm.org/solutelabs/nestjs-boilerplate">
+<img src="https://img.shields.io/david/solutelabs/nestjs-boilerplate">
+</a>
+<a href="https://david-dm.org/solutelabs/nestjs-boilerplate?type=dev">
+<img src="https://img.shields.io/david/dev/solutelabs/nestjs-boilerplate" />
+</a>
+
 ## Getting Started
 
 ---
@@ -288,11 +295,10 @@ ThrottlerModule.forRoot({
 
 - To use mail, message and notification service add it to providers array for respective modules in which this services are going to be used
 
-
 ## Repository
 
 - Repository is basically use to create contract between your application with database.
-that means for each table you can create repository. syntax will be following: 
+  that means for each table you can create repository. syntax will be following:
 
 ```
 @Entity('<YOUR_TABLE_NAME>')
@@ -301,8 +307,9 @@ export class UserEntity extends BaseEntity  {
   email: string;
 }
 ```
-- in this example @Entity decorator is use to connect your table with the repository and the 
-parameter defines the table name.
+
+- in this example @Entity decorator is use to connect your table with the repository and the
+  parameter defines the table name.
 
 - BaseEntity is the parent class so all the common column which are used in every table will be
-written over there so just we need to extend this example, already shown in the above example.
+  written over there so just we need to extend this example, already shown in the above example.
