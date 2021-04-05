@@ -21,8 +21,8 @@
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "release": "standard-version",
     "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js --config src/core/config/typeorm/index.ts",
-    "typeorm:migrate": "npm run typeorm migration:generate -- -n",
-    "typeorm:run": "npm run typeorm migration:run"
+    "migrate": "npm run typeorm migration:generate -- -n",
+    "migrate:apply": "npm run typeorm migration:run"
   },
   "dependencies": {
     "@nestjs/bull": "^0.3.1",
