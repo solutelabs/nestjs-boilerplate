@@ -7,6 +7,16 @@
 <img src="https://img.shields.io/david/dev/solutelabs/nestjs-boilerplate" />
 </a>
 
+## Features
+
+- _**Quick Setup**_ - Quickly setup and configure your application.
+
+- _**Fully integrated Typeorm**_ - Any applications requires database, so we have integrated Typeorm ([why?](https://typeorm.io/#/)).
+
+- _**Migration & Seeding**_ - Easy and elegant support for migration and seedind data.
+
+- _**Support for authentication & Authorization**_ - We have added built in api, guards and decorators, so you don't need to worry about.
+
 ## Getting Started
 
 ---
