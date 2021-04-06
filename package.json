@@ -22,7 +22,8 @@
     "release": "standard-version",
     "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js --config src/core/config/typeorm/index.ts",
     "migrate": "npm run typeorm migration:generate -- -n",
-    "migrate:apply": "npm run typeorm migration:run"
+    "migrate:apply": "npm run typeorm migration:run",
+    "seed": "ts-node -r tsconfig-paths/register src/core/config/typeorm/seeder/seed.ts"
   },
   "dependencies": {
     "@nestjs/bull": "^0.3.1",

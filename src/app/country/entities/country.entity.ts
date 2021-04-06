@@ -1,10 +1,8 @@
-import { Entity, Column, PrimaryColumn } from 'typeorm';
+import { BaseEntity } from 'src/app/utility/entity';
+import { Entity, Column } from 'typeorm';
 
 @Entity({ name: 'country' })
-export class CountryEntity {
-  @PrimaryColumn('text')
-  id?: string;
-
+export class CountryEntity extends BaseEntity {
   @Column()
   name: string;
 
