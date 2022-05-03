@@ -19,12 +19,14 @@ import { ThrottlerModule } from '@nestjs/throttler';
 import { UserModule } from './app/user/user.module';
 import { CountryModule } from './app/country/country.module';
 import * as ormconfig from './core/config/typeorm';
+import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 
 @Module({
   imports: [
     ScheduleModule.forRoot(),
     TypeOrmModule.forRoot(ormconfig),
-    GraphQLModule.forRootAsync({
+    GraphQLModule.forRootAsync<ApolloDriverConfig>({
+      driver: ApolloDriver,
       useClass: GraphqlService,
     }),
     TerminusModule,

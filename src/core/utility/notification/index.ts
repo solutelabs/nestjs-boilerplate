@@ -1,4 +1,5 @@
 import { Injectable, HttpService, Logger } from '@nestjs/common';
+import { HttpHeaders } from 'aws-sdk/clients/iot';
 import { ONE_SIGNAL_REST_API_KEY, ONE_SIGNAL_API_KEY } from '../../environment';
 import {
   IOneSignalSendNotificationByExternalIdsPayload,
@@ -29,21 +30,21 @@ export class OnesignalService {
       Logger.error(error, '', 'ONESIGNAL CREATE NOTIFICATION ERROR');
     }
   }
-  async cancelNotificatioBaseOnExternalId(
-    payload: IOneSignalCancelNotificationByExternalIdsPayload,
-  ) {
-    payload.app_id = ONE_SIGNAL_API_KEY;
-    const headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-      Authorization: `Basic ${ONE_SIGNAL_REST_API_KEY}`,
-    };
-    return this.httpService
-      .delete(
-        `https://onesignal.com:443/api/v1/notifications/${payload.id}?app_id=${payload.app_id}`,
-        {
-          headers: headers,
-        },
-      )
-      .toPromise();
-  }
+  // async cancelNotificatioBaseOnExternalId(
+  //   payload: IOneSignalCancelNotificationByExternalIdsPayload,
+  // ) {
+  //   payload.app_id = ONE_SIGNAL_API_KEY;
+  //   const headers = {
+  //     'Content-Type': 'application/json; charset=utf-8',
+  //     Authorization: `Basic ${ONE_SIGNAL_REST_API_KEY}`,
+  //   };
+  //   return this.httpService
+  //     .delete(
+  //       `https://onesignal.com:443/api/v1/notifications/${payload.id}?app_id=${payload.app_id}`,
+  //       {
+  //         headers: headers,
+  //       },
+  //     )
+  //     .toPromise();
+  // }
 }
