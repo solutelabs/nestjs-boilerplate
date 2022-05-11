@@ -1,7 +1,10 @@
 import { Field, ObjectType } from '@nestjs/graphql';
 import { Length, Matches } from 'class-validator';
 import { characterLimitMessage, characterValidationMessage } from '../../dto';
-import { MIN_PASSWORD_LENGTH, MAX_PASSWORD_LENGTH } from '@environments';
+import {
+  MIN_PASSWORD_LENGTH,
+  MAX_PASSWORD_LENGTH,
+} from '../../../../core/environment';
 
 @ObjectType()
 export class ResetPasswordModel {

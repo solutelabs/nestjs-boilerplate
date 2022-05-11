@@ -1,5 +1,6 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { getRepository } from 'typeorm';
+import { newUser } from './dto/create-user.dto';
 import { UserEntity } from './entities';
 
 @Injectable()
@@ -11,9 +12,11 @@ export class UserService {
    * @description find user by email
    */
   async findByEmail(email: string): Promise<UserEntity | undefined> {
-    return getRepository(UserEntity).findOne({
+    const user = await getRepository(UserEntity).findOne({
       email,
     });
+    console.log(user);
+    return user;
   }
 
   /**
@@ -23,8 +26,23 @@ export class UserService {
    * @description find user by id
    */
   async findById(id: string): Promise<UserEntity | undefined> {
-    return getRepository(UserEntity).findOne({
+    const user = getRepository(UserEntity).findOne({
       id,
     });
+    console.log(user);
+    return user;
+  }
+
+  async createUser(data: newUser) {
+    const user = getRepository(UserEntity).create(data);
+
+    try {
+      getRepository(UserEntity).save(data);
+      console.log(user);
+    } catch (e) {
+      throw new BadRequestException(e);
+    }
+
+    return user;
   }
 }

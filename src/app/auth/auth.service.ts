@@ -9,8 +9,8 @@ import { IPayload, IAuthResponse } from './interface';
 import { UserService } from './../user/user.service';
 import { LoginDto } from './dto';
 import { UserEntity } from './../user/entities';
-import { compareHash } from '@utility';
-import { ERROR_CODES } from '@errors';
+import { compareHash } from '../../core/utility/bcrypt';
+import { ERROR_CODES } from '../../core/error-code';
 
 @Injectable()
 export class AuthService {
@@ -80,7 +80,6 @@ export class AuthService {
     password: string,
   ): Promise<UserEntity | any> {
     const user = await this.userService.findByEmail(email);
-
     if (!user) {
       throw new NotFoundException('User not found', ERROR_CODES.USER_NOT_FOUND);
     }

@@ -12,9 +12,9 @@ import {
   IResetPasswordResponse,
 } from './interface';
 import { UserService } from './../../user/user.service';
-import { compareHash, generateHash } from '@utility';
-import { UtilityService } from 'src/app/utility';
-import { ERROR_CODES } from '@errors';
+import { compareHash, generateHash } from '../../../core/utility';
+import { UtilityService } from '../../utility';
+import { ERROR_CODES } from '../../../core/error-code';
 
 @Injectable()
 export class PasswordService {
@@ -83,7 +83,8 @@ export class PasswordService {
       throw new NotFoundException('User not found', ERROR_CODES.USER_NOT_FOUND);
     }
 
-    const new_reset_password_token = await this.utilityService.generateRandomToken();
+    const new_reset_password_token =
+      await this.utilityService.generateRandomToken();
     await getRepository(UserEntity).save({
       reset_password_token: new_reset_password_token,
       id: user.id,

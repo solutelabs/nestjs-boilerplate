@@ -2,7 +2,7 @@ import { Entity, Column } from 'typeorm';
 import { BaseEntity } from '../../utility/entity';
 
 @Entity('user')
-export class UserEntity extends BaseEntity  {
+export class UserEntity extends BaseEntity {
   @Column('text')
   email: string;
 

@@ -10,11 +10,17 @@ export const characterValidationMessage =
   'password must contain one uppercase, lowercase, number and symbol';
 
 @InputType()
-export class LoginDto {
+export class userInput {
   @Field()
   @IsEmail()
   email: string;
 
   @Field()
-  password: string;
+  password?: string;
+
+  @Field()
+  active: boolean;
+
+  @Field()
+  role: string;
 }

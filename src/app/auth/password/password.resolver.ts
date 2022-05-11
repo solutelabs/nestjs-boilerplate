@@ -13,7 +13,7 @@ import {
   IForgetPasswordResponse,
   IResetPasswordResponse,
 } from './interface';
-import { User, JwtAuthGuard } from '@utility';
+import { User, JwtAuthGuard } from '../../../core/utility';
 
 @Resolver()
 export class PasswordResolver {
